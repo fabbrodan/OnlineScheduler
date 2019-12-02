@@ -1,5 +1,5 @@
 function SaveApointment(){
-    var name = $("#name").val();
+    var name = $("#userName").val();
     var email = $("#email").val();
     var notes = $("#inputNotes").val();
     var from = $("#from").val();
