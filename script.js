@@ -6,12 +6,9 @@ $("document").ready(function() {
 });
 
 function SignIn(form) {
-
     var inputs = form.find(":input");
-
     var userName = inputs[0].value;
     var password = inputs[1].value;
-
     var users;
 
     $.ajax({
@@ -26,6 +23,7 @@ function SignIn(form) {
             if (element.userName == userName) {
                 if (element.password == password) {
                     console.log("logged in");
+                    window.location.href="/schedule.html"
                     return false;
                 }
                 else {

@@ -12,6 +12,7 @@ function SaveApointment(){
         afrom: from,
         ato: to
     }
+
     $("#formApointment").css("display", "none");
 }
 function AddApointment(){
