@@ -1,0 +1,41 @@
+table {
+    width: 70%;
+    border-spacing: 0;
+    table-layout: fixed;
+    position: relative;
+    border: 1px solid black;
+}
+.calender_header {
+}
+.days {
+    color: black;
+    text-align: center;
+    position: relative;
+    border-collapse: collapse;
+}
+.hour {
+    color: rgb(0, 0, 0);
+}
+th{
+    text-align: center;
+    border: 1px solid rgb(160, 160, 160);
+    padding: 8px;
+}
+td{
+    text-align: left;
+    border-right: 1px solid rgb(160, 160, 160);
+    border-left: 1px solid rgb(160, 160, 160);
+    padding: 8px;
+}
+tr:nth-child(even) {
+}
+hour{
+    font-size: 16px;
+    border-collapse: separate;
+    min-width: 100px;
+    cursor: default;
+    color: red;
+}
+span{
+    display: block;
+}
