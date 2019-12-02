@@ -1,0 +1,32 @@
+#inputNotes{
+    height: 100px;
+}
+form{
+    width: 500px;
+    display: none;
+    flex-direction: column;
+    background-color: rgb(236, 214, 186);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.dates{
+    padding: 20px;
+    width: 450px;
+    flex-direction: row;
+}
+.content{
+    background-color: cadetblue;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.header{
+    background-color: chocolate;
+}
+#apointmentButton{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
