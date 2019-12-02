@@ -13,6 +13,8 @@ function SaveApointment(){
         ato: to
     }
     $("#formApointment").css("display", "none");
+    $("#apointmentButton").css("display", "flex");
+
 }
 function AddApointment(){
     var form = $("#formApointment");
