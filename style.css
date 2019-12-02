@@ -1,11 +1,21 @@
+.header {
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(173, 173, 173, 0.5);
+}
 table {
     width: 70%;
     border-spacing: 0;
     table-layout: fixed;
     position: relative;
     border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
 }
-.calender_header {
+.calender {
+    
 }
 .days {
     color: black;
@@ -34,7 +44,6 @@ hour{
     border-collapse: separate;
     min-width: 100px;
     cursor: default;
-    color: red;
 }
 span{
     display: block;
