@@ -60,7 +60,7 @@ window.onload = () => {
     for (let i = 0; i < 7; i++) {
       let emptyEl = document.createElement('div');
       emptyEl.id = element["id"] + '-' + i;
-      emptyEl.className = 'day';
+      emptyEl.className = 'day booking-day';
       calendar.appendChild(emptyEl);
     }
   });

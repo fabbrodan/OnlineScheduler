@@ -79,7 +79,9 @@ $("document").ready(function() {
 
     $(".day").click(function() {
         var selectedTime = parseInt($(this).attr("id").slice(0, 2).replace("-", ""));
-        var selectedDay = parseInt($(this).attr("id").slice(2, 3));
+        var selectedDay = $(this).attr("id").length === 3 ?
+            parseInt($(this).attr("id").slice(2, 3).replace("-", ""))
+            : parseInt($(this).attr("id").slice(3, 4).replace("-", ""));
         AddApointment(selectedTime, selectedDay);
     });
 
@@ -96,7 +98,11 @@ $("document").ready(function() {
     $("#logoutBtn").click(function() {
         sessionStorage.removeItem("signedIn");
         window.location.href = "/";
-    })
+    });
+
+    $("#closeBtn").click(function() {
+        $("#hiddenForm").css("display", "none");
+    });
 });
 
 async function LoadUserAppointments(database, userName) {
@@ -110,7 +116,8 @@ async function LoadUserAppointments(database, userName) {
 
     $.each(appointmentsArr, function(index, element) {
         for(i = element["startTime"]; i <= element["endTime"]; i++) {
-            $("#"+i+"-"+element["dayOfWeek"]).css("background-color", "green");
+            var id = "#" + i + "-" + element["dayOfWeek"];
+            $(id).addClass("booked");
         }
     });
 }
@@ -129,11 +136,31 @@ function GetUrlParam(sParam) {
 }
 
 function AddApointment(startTime, selectedDay){
-    var form = $("#formApointment");
+    $("#hiddenForm").css("display", "flex");
     $("#from").val(times.find(i => i.id === startTime).value);
+    if (startTime < 46) {
+        $("#to").val(times.find(i => i.id === startTime + 1).value);
+    }
     $("#selectedDay").val(selectedDay);
-    form.css("display", "flex");
-    $("#apointmentButton").css("display", "none");
+
+    var dayAsString;
+    switch(selectedDay) {
+        case 0: dayAsString = "Monday";
+            break;
+        case 1: dayAsString = "Tuesday";
+            break;
+        case 2: dayAsString = "Wednesday";
+            break;
+        case 3: dayAsString = "Thursday";
+            break;
+        case 4: dayAsString = "Friday";
+            break;
+        case 5: dayAsString = "Saturday";
+            break;
+        case 6: dayAsString = "Sunday";
+            break;
+    }
+    $("#formDayLabel").text(dayAsString);
 }
 
 async function SaveAppointment(database, userName) {
