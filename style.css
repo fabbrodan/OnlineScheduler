@@ -48,7 +48,7 @@ hour{
 #inputNotes{
     height: 100px;
 }
-form{
+#formApointment {
     width: 500px;
     display: none;
     flex-direction: column;

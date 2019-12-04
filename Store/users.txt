@@ -1,6 +1,0 @@
-[
-    { "userName": "FabbroDan", "password": "daniel" },
-    { "userName": "Alexander", "password": "alexander" },
-    { "userName": "Hilda", "password": "hilda" },
-    { "userName": "David", "password": "david" }
-]
