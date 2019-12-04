@@ -92,6 +92,11 @@ $("document").ready(function() {
         var ddwnEntry = $("<option></option>").text(element["value"]);
         $("#from").append(ddwnEntry);
     });
+
+    $("#logoutBtn").click(function() {
+        sessionStorage.removeItem("signedIn");
+        window.location.href = "/";
+    })
 });
 
 async function LoadUserAppointments(database, userName) {
