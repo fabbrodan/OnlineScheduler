@@ -35,10 +35,8 @@ td{
     padding: 8px;
     border-bottom: 1px dotted black;
 }
-tr{
-    
-}
-hour{
+
+.hour{
     font-size: 16px;
     border-collapse: separate;
     min-width: 100px;

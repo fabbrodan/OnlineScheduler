@@ -15,19 +15,15 @@
     <body>
         <div class="header">
                 <h1>Schedule</h1>
-                <button id="apointmentButton" onclick="AddApointment()">Add apointment</button>
+                <button id="apointmentButton">Add apointment</button>
                 <div id="hiddenForm">
                                 <form id="formApointment">
-                                    <label>Name</label>
-                                    <input type="text" id="name">
-                                    <label>Email</label>
-                                    <input type="email" id="email">
-                                    <label>Notes</label>
-                                    <input id="inputNotes" type="text">
+                                    <label for="inputNotes">Notes</label>
+                                    <input id="inputNotes" type="textarea">
                                     <div class="dates">
-                                            <label>From</label>
+                                    <label for="from">From</label>
                                     <input type="datetime-local" id="from">
-                                    <label>To</label>
+                                    <label for="to">To</label>
                                     <input type="datetime-local" id="to">
                                     </div>
                                     <input type="submit">
@@ -48,7 +44,7 @@
                 </tr>
                 <tr class="hour" rowspan="4">
                     <td>08:00</td>
-                    <td></td>
+                    <td class="timeSlot" id="0800-0"></td>
                     <td></td>
                     <td></td>
                     <td></td>

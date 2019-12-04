@@ -16,11 +16,17 @@ $("document").ready(function() {
 
     LoadUserAppointments(fb.database(), userName);
 
+    $("#apointmentButton").click(AddApointment);
+
     $("#formApointment").submit(function(event) {
         event.preventDefault();
         SaveAppointment(fb.database(), userName);
     });
 
+    $(".timeSlot").click(function() {
+        var selectedTime = $(this).attr("id").slice(0, 4);
+        AddApointment(selectedTime);
+    });
 });
 
 function LoadUserAppointments(database, userName) {
@@ -47,8 +53,9 @@ function GetUrlParam(sParam) {
 	    }
 }
 
-function AddApointment(){
+function AddApointment(startDate){
     var form = $("#formApointment");
+    $("#from").val(startDate);
     form.css("display", "flex");
     $("#apointmentButton").css("display", "none");
 }
