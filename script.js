@@ -15,18 +15,23 @@ $("document").ready(function() {
 
     $("#loginForm").submit(function(event) {
         event.preventDefault();
-        SignIn($(this), fb);
+        SignIn($(this), database);
     });
+
+    $("#newUserForm").submit(function(event) {
+        event.preventDefault();
+        CreateUser($(this), database)
+    })
 });
 
-function SignIn(form, fb) {
+function SignIn(form, database) {
     var inputs = form.find(":input");
     var userName = inputs[0].value;
     var password = inputs[1].value;
 
     
 
-    fb.database().ref("/users/"+userName).once("value", function(snapshot) {
+    database.ref("/users/"+userName).once("value", function(snapshot) {
         if (snapshot.exists()) {
             var fbPassword = snapshot.val();
             if (password === fbPassword["password"]) {
@@ -40,4 +45,22 @@ function SignIn(form, fb) {
             alert("incorrect username");
         }
     })
+}
+
+function CreateUser(form, database) {
+
+    var inputs = form.find(":input"),
+    userName = inputs[0].value,
+    firstPassword = inputs[1].value,
+    secondPassword = inputs[2].value;
+
+    if (firstPassword !== secondPassword) {
+        alert("Passwords are different!");
+        return;
+    }
+
+    database.ref("/users/"+userName).set ({
+        password: firstPassword
+    });
+    window.location.href="/schedule.html?user="+userName;
 }

@@ -15,7 +15,7 @@ $("document").ready(function() {
     var fb = firebase.initializeApp(firebaseConfig);
     $("#formApointment").submit(function(event) {
         event.preventDefault();
-        SaveAppointment(fb.database(), $(this), userName);
+        SaveAppointment(fb.database(), userName);
     })
 
 });
@@ -39,7 +39,7 @@ function AddApointment(){
     $("#apointmentButton").css("display", "none");
 }
 
-function SaveAppointment(database, form, userName) {
+function SaveAppointment(database, userName) {
 
     var name = $("#name").val();
     var email = $("#email").val();
@@ -55,9 +55,10 @@ function SaveAppointment(database, form, userName) {
         ato: to
     }
 
-    database.ref("/appointments/").set( {
-        user: userName,
-        description: notes,
+    var userAppointments = database.ref("/appointments/"+userName);
+    var newAppt = userAppointments.push();
+    newAppt.set( {
+        note: notes,
         startTime: from,
         endTime: to
     });
