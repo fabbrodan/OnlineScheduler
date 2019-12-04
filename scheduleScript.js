@@ -13,12 +13,26 @@ $("document").ready(function() {
     };
     
     var fb = firebase.initializeApp(firebaseConfig);
+
+    LoadUserAppointments(fb.database(), userName);
+
     $("#formApointment").submit(function(event) {
         event.preventDefault();
         SaveAppointment(fb.database(), userName);
-    })
+    });
 
 });
+
+function LoadUserAppointments(database, userName) {
+
+    var appointmentsArr = []
+    database.ref("/appointments/"+userName).once("value", function(snapshot) {
+        snapshot.forEach(function(apptSnap) {
+            appointmentsArr.push(apptSnap.val());
+        });
+    });
+    // POPULATE SCHEMA CELLS USING appointmentsArr HERE BELOW
+}
 
 function GetUrlParam(sParam) {
     var sPageURL = window.location.search.substring(1);
