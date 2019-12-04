@@ -15,22 +15,6 @@
         <div class="header">
         <h1>Schedule</h1>
         <span style="float: right;"><input type="button" id="logoutBtn" value="Sign Out"/></span>
-        </div>
-        <div id="hiddenForm">
-                <form id="formApointment">
-                        <label for="inputNotes">Notes</label>
-                        <input id="inputNotes" type="textarea">
-                        <div class="dates">
-                        <label for="from">From</label>
-                        <select id="from">
-                        </select>
-                        <label for="to">To</label>
-                        <select id="to">
-                        </select>
-                        </div>
-                        <input type="text" id="selectedDay" hidden/>
-                        <input type="submit">
-                </form>
         </div>     
 
     <div id="calendar">
@@ -42,6 +26,28 @@
       <div class="head-day day">Fri</div>
       <div class="head-day day">Sat</div>
       <div class="head-day day">Sun</div>
+    </div>
+    <div id="hiddenForm">
+      <h1 id="formDayLabel"></h1>
+        <form id="formApointment">
+          <div class="formRow">
+              <label for="inputNotes">Notes</label>
+              <textarea id="inputNotes" cols="15" rows="4"></textarea>
+          </div>
+          <div class="dates formRow">
+              <label for="from">From</label>
+              <select id="from">
+              </select>
+              <label for="to">To</label>
+              <select id="to">
+              </select>
+          </div>
+          <div class="formRow">
+              <input type="text" id="selectedDay" hidden/>
+              <input type="submit" value="Add" style="float: left;">
+              <input type="button" id="closeBtn" value="Cancel" style="float: right;"/>
+          </div>
+        </form>
     </div>
     <script src="calendar.js"></script>
   </body>
