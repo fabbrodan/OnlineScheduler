@@ -82,6 +82,16 @@ $("document").ready(function() {
         var selectedDay = parseInt($(this).attr("id").slice(2, 3));
         AddApointment(selectedTime, selectedDay);
     });
+
+    $.each(times, function(index, element) {
+        var ddwnEntry = $("<option></option>").text(element["value"]);
+        $("#to").append(ddwnEntry);
+    });
+
+    $.each(times, function(index, element) {
+        var ddwnEntry = $("<option></option>").text(element["value"]);
+        $("#from").append(ddwnEntry);
+    });
 });
 
 async function LoadUserAppointments(database, userName) {
