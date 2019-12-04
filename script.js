@@ -23,19 +23,19 @@ $("document").ready(function() {
         CreateUser($(this), database)
     })
 });
-
-function SignIn(form, database) {
+async function SignIn(form, database) {
     var inputs = form.find(":input");
     var userName = inputs[0].value;
     var password = inputs[1].value;
 
     
+    var auth = false;
 
-    database.ref("/users/"+userName).once("value", function(snapshot) {
+    await database.ref("/users/"+userName).once("value", function(snapshot) {
         if (snapshot.exists()) {
             var fbPassword = snapshot.val();
             if (password === fbPassword["password"]) {
-                window.location.href="/schedule.html?user="+userName;
+                auth = true;
             }
             else {
                 alert("incorrect password");
@@ -44,7 +44,11 @@ function SignIn(form, database) {
         else {
             alert("incorrect username");
         }
-    })
+    });
+    if (auth) {
+        sessionStorage.setItem("signedIn", userName);
+        window.location.href = "/schedule.html?user="+userName;
+    }
 }
 
 function CreateUser(form, database) {
