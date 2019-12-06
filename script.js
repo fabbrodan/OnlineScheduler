@@ -61,6 +61,7 @@ function CreateUser(form, database) {
   database.ref('/users/' + userName).set({
     password: firstPassword
   });
+  sessionStorage.setItem('signedIn', userName);
   window.location.href = '/schedule.html?user=' + userName;
 }
 $('.toggle-btn').on('click', () => {
