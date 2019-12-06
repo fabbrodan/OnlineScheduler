@@ -187,6 +187,7 @@ function GetUrlParam(sParam) {
 
 function AddApointment(startTime, selectedDay) {
   $('#hiddenForm').css('display', 'flex');
+  $("#inputNotes").val("");
   $('#from').val(times.find(i => i.id === startTime).value);
   if (startTime < 46) {
     $('#to').val(times.find(i => i.id === startTime + 1).value);
