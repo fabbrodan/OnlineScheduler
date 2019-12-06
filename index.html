@@ -1,34 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name ="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-        <script
-			  src="https://code.jquery.com/jquery-3.4.1.min.js"
-			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-              crossorigin="anonymous">
-        </script>
-        <script type="text/javascript" src="script.js"></script>
-    </head>
-    <body>
-        <div>
-            <form id="loginForm">
-                    <input type="text" placecholder="User Name" name="userName"/>
-                    <input type="password" placeholder="Password" name="password"/>
-                    <input type="submit" value="Login"/>
-            </form>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <!-- <div class="container" id="login-form">
+      <p class="label">Login</p>
+      <form id="loginForm">
+        <input type="text" placeholder="User Name" name="userName" class="input" />
+        <input type="password" placeholder="Password" name="password" class="input" />
+        <input type="submit" value="Login" class="btn color-btn" />
+      </form>
+      <ul id="toggle-form">
+        <li class="toggle-tab"><a href="" class="active-tab">Log in</a></li>
+        <li class="toggle-tab"><a href="">Register</a></li>
+      </ul>
+    </div>
+    <div class="container" id="reg-form">
+      <p class="label">Register</p>
+      <form id="newUserForm">
+        <input type="text" placeholder="User Name" name="userName" class="input" />
+        <input type="password" placeholder="Password" name="passwordFirst" class="input" />
+        <input type="password" placeholder="Confirm Password" name="passwordSecond" class="input" />
+        <input type="submit" value="Create account" class="btn" />
+      </form>
+      <ul id="toggle-form">
+        <li class="toggle-tab"><a href="">Log in</a></li>
+        <li class="toggle-tab"><a href="" class="active-tab">Register</a></li>
+      </ul>
+    </div> -->
+
+    <div class="container">
+      <div id="box">
+        <div class="card" id="card">
+          <p>Have an account?</p>
+          <button id="toggle-log" onclick="toggleForm()">Sign In</button>
         </div>
-        <div>
-            <form id="newUserForm">
-                <input type="text" placeholder="User Name" name="userName"/>
-                <input type="password" placeholder="Password" name="passwordFirst"/>
-                <input type="password" placeholder="Confirm Password" name="passwordSecond"/>
-                <input type="submit" value="Create account"/>
-            </form>
+        <div class="card" id="card">
+          <p>Don't have an account?</p>
+          <button id="toggle-sign" onclick="toggleForm()">Sign Up</button>
         </div>
-    </body>
+      </div>
+      <div id="forms" class="sign-in">
+        <div class="form on">
+          <span class="label">Sign In</span>
+          <form id="loginForm">
+            <input type="text" placeholder="User Name" name="userName" class="input" />
+            <input type="password" placeholder="Password" name="password" class="input" />
+            <input type="submit" value="Sign In" class="btn color-btn" />
+          </form>
+        </div>
+        <div class="form">
+          <span class="label">Sign Up</span>
+          <form id="newUserForm">
+            <input type="text" placeholder="User Name" name="userName" class="input" />
+            <input type="password" placeholder="Password" name="passwordFirst" class="input" />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              name="passwordSecond"
+              class="input"
+            />
+            <input type="submit" value="Sign Up" class="btn color-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

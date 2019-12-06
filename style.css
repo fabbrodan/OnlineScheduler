@@ -3,73 +3,106 @@
   margin: 0;
 }
 
+body {
+  background: #f7f8fc;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 1px 1px 1px 1px rgba(251, 140, 0, 0.3);
+}
+
+#logo {
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.color-btn {
+  border: 4px solid #fb8c00;
+  color: #fb8c00;
+  padding: 7px;
+  background: transparent;
+  border-radius: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.color-btn:hover,
+.color-btn:focus {
+  color: #fff;
+  box-shadow: inset 0 -3.25em 0 0 #fb8c00;
+}
+
+#logoutBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 #calendar {
   width: 70%;
   height: 100%;
-  margin: 100px 15%;
-  border: 1px solid;
+  margin: 120px 15%;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto;
   position: relative;
+  background: #fff;
 }
 
 .day {
   padding: 10px;
   text-align: center;
   border: 1px solid rgba(241, 241, 241, 0.4);
+  position: relative;
+  cursor: pointer;
+}
+
+.day .tooltip {
+  visibility: hidden;
+  display: none;
+  width: 120px;
+  background-color: #dbdbdb;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -60px;
+}
+
+.day .tooltip::after {
+  content: ' ';
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #dbdbdb transparent transparent transparent;
+}
+
+.day:hover .tooltip {
+  visibility: visible;
 }
 
 .head-day {
-  background: rgba(241, 241, 241, 1);
+  /* background: rgba(241, 241, 241, 1); */
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .col-day {
-  background: rgba(241, 241, 241, 1);
-}
-
-.header {
-  text-align: center;
-  width: 100%;
-  height: 60px;
-  background-color: rgb(173, 173, 173, 0.5);
-  display: flex;
-}
-table {
-  top: 100px;
-  width: 70%;
-  border-spacing: 0;
-  table-layout: fixed;
-  position: relative;
-  border: 1px solid black;
-  background-color: rgb(255, 255, 255);
-}
-.days {
-  color: black;
-  text-align: center;
-  position: relative;
-  border-collapse: collapse;
-}
-.hour {
-  color: rgb(0, 0, 0);
-}
-th {
-  text-align: center;
-  border: 1px solid rgb(160, 160, 160);
-  padding: 8px;
-}
-td {
-  text-align: left;
-  border-right: 1px solid rgb(160, 160, 160);
-  border-left: 1px solid rgb(160, 160, 160);
-  padding: 8px;
-  border-bottom: 1px dotted black;
-}
-
-.hour{
-    font-size: 16px;
-    border-collapse: separate;
-    min-width: 100px;
-    cursor: default;
+  /* background: rgba(241, 241, 241, 1); */
+  box-shadow: 1px 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 /*#inputNotes{
@@ -77,30 +110,30 @@ td {
 }*/
 
 #hiddenForm {
-    /*width: 500px;
+  /*width: 500px;
     display: none;
-    
+
     position: absolute;
     top: 25%;
     left: 25%;
     z-index: 999; */
 
-    flex-direction: column;
-    background-color: rgba(236, 214, 186, 0.9);
-    color: black;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 15px;
-    border: 1px solid black;
+  flex-direction: column;
+  background-color: rgba(236, 214, 186, 0.9);
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  border: 1px solid black;
 
-    display:none;
-    position:fixed;
-    z-index:1;
-    padding-top:10px;
-    left:40%;
-    top:20%;
-    width:250px;
-    height:175px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 10px;
+  left: 40%;
+  top: 20%;
+  width: 250px;
+  height: 175px;
 }
 
 /*.dates{
@@ -117,11 +150,11 @@ td {
   flex-direction: row;
 }
 
-.content{
-    background-color: cadetblue;
-    height: 100%;
-    position: absolute;
-    width: 100%;
+.content {
+  background-color: cadetblue;
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
 #apointmentButton {
@@ -130,9 +163,137 @@ td {
 }
 
 .booked {
-  background-color: green;
+  background-color: #fb8c00;
 }
 
 .booking-day:hover {
-  background-color: rgba(10, 10, 10, 0.6);
+  background-color: rgba(10, 10, 10, 0.4);
+}
+
+.booked:hover {
+  background-color: #ffbd45;
+}
+.container {
+  box-shadow: 3px 3px 10px 4px rgba(0, 0, 0, 0.1);
+  background: #fb8c00;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 200px auto;
+  position: relative;
+}
+
+.container #box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.container #box .card {
+  text-align: center;
+  color: #fff;
+  width: 50%;
+  transition: 0.3s;
+}
+
+.container #box .card p {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.container #box .card button {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-top: 10px;
+  outline: 0;
+}
+
+.container #box .card button:hover {
+  color: #ffbd45;
+  background: #fff;
+}
+
+.container #forms {
+  display: flex;
+  position: absolute;
+  top: -50px;
+  width: 50%;
+  background: #fff;
+  padding: 20px;
+  height: 400px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.container #forms .form {
+  width: 100%;
+  display: none;
+  opacity: 0;
+}
+
+.container .sign-up {
+  left: 45%;
+}
+
+.container .sign-in {
+  left: 5%;
+}
+
+.container #forms .on {
+  display: block;
+  opacity: 1;
+}
+
+.container #forms .form .label {
+  position: relative;
+  z-index: 10;
+  font-size: 25px;
+  text-align: center;
+  margin: -90px auto 20px;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  box-sizing: border-box;
+  background: #fb8c00;
+  color: #fff;
+  border-radius: 50%;
+  display: block;
+}
+
+.container #forms .form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container #forms .form .input {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  font-size: 12px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.container #forms .form .btn {
+  width: 40%;
+  display: block;
+  margin: 20px auto;
+}
+
+#sign-in {
+  display: block;
+}
+
+#sign-up {
+  display: none;
 }

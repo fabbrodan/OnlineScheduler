@@ -52,15 +52,23 @@ window.onload = () => {
   let calendar = document.getElementById('calendar');
   times.forEach(element => {
     let newEl = document.createElement('div');
-    newEl.id = element["id"];
+    newEl.id = element['id'];
     newEl.className = 'col-day day';
-    newEl.innerHTML = element["value"];
+    newEl.innerHTML = element['value'];
     calendar.appendChild(newEl);
 
     for (let i = 0; i < 7; i++) {
       let emptyEl = document.createElement('div');
-      emptyEl.id = element["id"] + '-' + i;
+      emptyEl.id = element['id'] + '-' + i;
       emptyEl.className = 'day booking-day';
+      let value = element['id'];
+
+      emptyEl.addEventListener('click', () => {
+        AddApointment(value, i);
+      });
+      let innerEl = document.createElement('span');
+      innerEl.className = 'tooltip';
+      emptyEl.appendChild(innerEl);
       calendar.appendChild(emptyEl);
     }
   });
