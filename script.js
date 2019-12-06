@@ -53,7 +53,16 @@ function CreateUser(form, database) {
     firstPassword = inputs[1].value,
     secondPassword = inputs[2].value;
 
-  if (firstPassword !== secondPassword) {
+  if(userName === "") {
+    alert("Username cannot be empty!");
+    return;
+  }
+
+  if (firstPassword === "") {
+    alert("Password cannot be empty!");
+    return;
+  }
+  if ((firstPassword !== secondPassword)) {
     alert('Passwords are different!');
     return;
   }
@@ -83,7 +92,6 @@ function toggleForm() {
   //     $('#sign-in').show();
   //   }
   //   signIn = !signIn;
-  console.log('hej');
   $('#forms').toggleClass('sign-up');
   $('#forms').toggleClass('sign-in');
   $('.form').toggleClass('on');
