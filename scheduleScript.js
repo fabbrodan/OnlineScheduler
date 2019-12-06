@@ -59,6 +59,8 @@ $('document').ready(function() {
     return;
   }
 
+  $("#logo").text("Schedule for " + userName);
+
   var firebaseConfig = {
     apiKey: 'AIzaSyAh50GpB6sirjKPLqY-I6KAwN2tkfR86rs',
     authDomain: 'onlinescheduler-cc7ee.firebaseapp.com',
